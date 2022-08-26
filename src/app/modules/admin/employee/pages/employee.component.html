@@ -1,0 +1,40 @@
+<div>
+    <ng-container>
+        <h2 id="title-add-employee" class="mt-10"  *ngIf="!updateEmployeeDrawer">Add Employee</h2>
+        <h2 id="title-update-employee" class="mt-10"  *ngIf="updateEmployeeDrawer">Update Employee</h2>
+        <mat-form-field class="ml-28 mt-5" appearance="outline">
+            <mat-label>Employee's name</mat-label>
+            <input matInput placeholder="Employee's name" [(ngModel)]="newEmployee.name">
+        </mat-form-field>
+        <mat-form-field class="ml-2 mt-5" appearance="outline">
+            <mat-label>Employee's position</mat-label>
+            <input matInput placeholder="Employee's position" [(ngModel)]="newEmployee.type">
+        </mat-form-field>
+        <mat-form-field class="ml-2 mt-5" appearance="outline">
+            <mat-label>Employee's ID number</mat-label>
+            <input matInput placeholder="Employee's ID number" [(ngModel)]="newEmployee.dni">
+        </mat-form-field>
+        <mat-form-field class="ml-2 mt-5" appearance="outline">
+            <mat-label>Employee's phone number</mat-label>
+            <input matInput placeholder="Employee's phone number" [(ngModel)]="newEmployee.phoneNumber">
+        </mat-form-field>
+        <div style="display: inline-block" *ngIf="!updateEmployeeDrawer">
+            <button id="add-button-employee" mat-raised-button class="ml-28 mt-2" (click)="addEmployee()">Register Employee</button>
+        </div>
+        <div style="display: inline-block" *ngIf="updateEmployeeDrawer">
+            <button id="update-button-employee" mat-raised-button class="ml-28 mt-2" (click)="updateEmployee()" *transloco="let t">{{ t('hotel-update-btn') }}</button>
+            <button id="delete-employee-button" mat-raised-button class="ml-2 mt-2"  (click)="cancelUpdateEmployee()" *transloco="let t">{{ t('hotel-cancel-btn') }}</button>
+        </div>
+    </ng-container>
+    <mat-card id="card-employee" class="ml-30 mt-10 w-200" *ngFor="let employee of employee">
+        <h3>{{  employee.name }}</h3>
+        <mat-list>
+            <h2>Position: :</h2><p><i>{{ employee.type }}</i></p>
+            <h2>ID Number:</h2><p><i>{{ employee.dni }}</i></p>
+            <h2>Phone Number: :</h2><p><i>{{ employee.phoneNumber }}</i></p>
+        </mat-list>
+        <button id="update-employee-button" mat-raised-button class="ml-40 mt-5" (click)="updateSelectionEmployee(employee)">Update Employee</button>
+        <button id="delete-employee-button" mat-raised-button class="ml-30 mt-5" (click)="deleteEmployeeConfirmation(employee)">Delete Employee</button>
+    </mat-card>
+</div>
+

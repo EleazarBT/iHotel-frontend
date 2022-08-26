@@ -1,0 +1,35 @@
+<div id="product-section">
+    <ng-container>
+        <h2 class="mt-10 title-add-products" *ngIf="!updateProductDrawer">Update Products</h2>
+        <h2 class="mt-10 title-add-products" *ngIf="updateProductDrawer">Add Products</h2>
+        <mat-form-field class="accent-black ml-28 mt-5 w-72" appearance="outline">
+            <mat-label>Products name</mat-label>
+            <input matInput placeholder="Products name" [(ngModel)]="newProduct.name">
+        </mat-form-field>
+        <mat-form-field type="number" class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Price</mat-label>
+            <input type="number" matInput placeholder="Price" min="0" [(ngModel)]="newProduct.price">
+        </mat-form-field>
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Brand's Name</mat-label>
+            <input matInput placeholder="Brand's name" [(ngModel)]="newProduct.brandName">
+        </mat-form-field>
+        <div style="display: inline-block" *ngIf="!updateProductDrawer">
+            <button id="update-button-product" mat-raised-button class="ml-28 mt-2" (click)="addProduct()">Register Employee</button>
+        </div>
+        <div style="display: inline-block" *ngIf="updateProductDrawer">
+            <button id="update-button-product" mat-raised-button class="ml-28 mt-2" (click)="updateProduct()" *transloco="let t">{{ t('hotel-update-btn') }}</button>
+            <button id="delete-button-product" mat-raised-button class="ml-2 mt-2"  (click)="cancelUpdateProduct()" *transloco="let t">{{ t('hotel-cancel-btn') }}</button>
+        </div>
+    </ng-container>
+    <mat-card class="ml-30 mt-10 w-200 mb-5" *ngFor="let product of products">
+        <h3 class="mat-card-products">{{ product.name }} <h4
+            class="mat-card-products-content">{{  product.brandName}}</h4></h3>
+        <p class="mat-card-products-content">
+            <i>{{ "Price: S/." + product.price }}</i>
+        </p>
+        <button id="update-button-product" mat-raised-button class="ml-40 mt-10 " (click)="updateSelectionProduct(product)">Update Product</button>
+        <button id="delete-button-product" mat-raised-button class="ml-30 mt-10" (click)="deleteProductConfirmation(product)">Delete Product</button>
+    </mat-card>
+</div>
+

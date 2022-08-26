@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Register a guest</h1>
+<div mat-dialog-content>
+    <form [formGroup]="registerForm">
+
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter status</mat-label>
+            <mat-select formControlName="status"
+                        placeholder="Status">
+                <ng-container *ngFor="let dl of statuses">
+                    <mat-option [value]="dl">{{dl}}</mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter Client id</mat-label>
+            <input matInput formControlName="clientId" min="0"  type="number"  required />
+            <!-- {{registerForm.value.reservationDate }}-->
+        </mat-form-field>
+
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter Reservation Date</mat-label>
+            <input matInput formControlName="reservationDate" id="reservationDate" type="date"  required />
+            <!-- {{registerForm.value.reservationDate }}-->
+        </mat-form-field>
+
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter Check in Date</mat-label>
+            <input matInput formControlName="checkInDate" id="checkInDate" type="date"  required />
+             <!--{{registerForm.value.checkInDate }}-->
+        </mat-form-field>
+
+
+    </form>
+
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button style="margin-left: 1rem;" mat-raised-button color="primary" (click)="action()">{{actionButton}}</button>
+</div>

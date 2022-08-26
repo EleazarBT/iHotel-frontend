@@ -1,0 +1,17 @@
+#title-home{
+    margin-top: 10px;
+    font-size: 30px;
+    margin-left: 120px;
+    font-weight: 700;
+}
+
+#subtitle-home{
+    margin-top: 10px;
+    font-size: 20px;
+    margin-left: 120px;
+}
+#guest-home-button, #consumption-home-button{
+    background: #009D76;
+    color: #FFFFFF;
+    height: 70px;
+}

@@ -1,0 +1,42 @@
+#title-add-employee, #title-update-employee {
+    margin-top: 10px;
+    font-size: 30px;
+    margin-left: 120px;
+    font-weight: 700;
+}
+#add-button-employee, #update-button-employee{
+    background: #009D76;
+    color: #FFFFFF;
+    height: 70px;
+}
+#card-employee h3 {
+    font-size: 30px;
+    font-weight: 700;
+}
+#card-employee h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+#card-employee p{
+    font-size: 15px;
+}
+#update-employee-button{
+    background: #009D76;
+    color: #FFFFFF;
+    height: 70px;
+}
+#delete-employee-button{
+    background: #D82C0D;
+    color: #FFFFFF;
+    height: 70px;
+}
+.mat-snack-bar-container {
+    background: #009D76 !important;
+    color: #ffffff !important;
+}
+#delete-employee-button{
+    background: #D82C0D;
+    color: #FFFFFF;
+    height: 70px;
+}

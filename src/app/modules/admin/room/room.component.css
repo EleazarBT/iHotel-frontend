@@ -1,0 +1,36 @@
+#title-select-hotel-room {
+    margin-top: 10px;
+    font-size: 30px;
+    margin-left: 120px;
+    font-weight: 700;
+}
+#card-room h3 {
+    font-size: 30px;
+}
+#card-room h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+#card-room p{
+    font-size: 15px;
+}
+#title-add-room, #title-update-room {
+    margin-top: 10px;
+    font-size: 30px;
+    margin-left: 120px;
+    font-weight: 700;
+}
+#add-button-room, #update-button-room{
+    background: #009D76;
+    color: #FFFFFF;
+    height: 70px;
+}
+.mat-snack-bar-container {
+    background: #009D76 !important;
+    color: #ffffff !important;
+}
+#delete-room-button{
+    background: #D82C0D;
+    color: #FFFFFF;
+    height: 70px;
+}

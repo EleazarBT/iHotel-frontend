@@ -1,0 +1,49 @@
+<div>
+
+    <ng-container *ngIf="modifyHotelDrawer">
+        <h2 id="title-update-hotel" class="mt-10" *transloco="let t">Update Hotel</h2>
+        <mat-form-field class="ml-28 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('hotel-name-input') }}</mat-label>
+            <input *transloco="let t" matInput placeholder="{{ t('hotel-name-input') }}" [(ngModel)]="hotel.name">
+        </mat-form-field>
+        <mat-form-field class="ml-5 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('hotel-description-input') }}</mat-label>
+            <input *transloco="let t" matInput placeholder="{{ t('hotel-description-input') }}" [(ngModel)]="hotel.description">
+        </mat-form-field>
+        <mat-form-field class="ml-5 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('hotel-address-input') }}</mat-label>
+            <input *transloco="let t" matInput placeholder="{{ t('hotel-address-input') }}" [(ngModel)]="hotel.address">
+        </mat-form-field>
+        <button id="add-button-hotel" mat-raised-button class="ml-5 mt-2" (click)="updateHotel()" *transloco="let t">{{ t('hotel-update-btn') }}</button>
+        <button id="delete-hotel-button" mat-raised-button class="ml-5 mt-2"
+            (click)="cancelUpdateHotel()" *transloco="let t">{{ t('hotel-cancel-btn') }}</button>
+    </ng-container>
+    <ng-container *ngIf="!modifyHotelDrawer">
+        <h2 id="title-add-hotel" class="mt-10" *transloco="let t"> {{ t('hotel-add') }}</h2>
+        <mat-form-field class="ml-28 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('hotel-name-input') }}</mat-label>
+            <input *transloco="let t" matInput placeholder="{{ t('hotel-name-input') }}" [(ngModel)]="hotel.name">
+        </mat-form-field>
+        <mat-form-field class="ml-5 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('hotel-description-input') }}</mat-label>
+            <input *transloco="let t" matInput placeholder="{{ t('hotel-description-input') }}" [(ngModel)]="hotel.description">
+        </mat-form-field>
+        <mat-form-field class="ml-5 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('hotel-address-input') }}</mat-label>
+            <input *transloco="let t" matInput placeholder="{{ t('hotel-address-input') }}" [(ngModel)]="hotel.address">
+        </mat-form-field>
+        <button id="add-button-hotel" mat-raised-button class="ml-10 mt-2" (click)="addHotel()" *transloco="let t">{{ t('hotel-register-btn') }}</button>
+    </ng-container>
+    <mat-card id="card-hotel" class="ml-30 mt-10 w-200" *ngFor="let hotel of hotels">
+        <h3>{{ hotel.name }}</h3>
+        <mat-list>
+            <h2 *transloco="let t">{{ t('hotel-description') }}:</h2>
+            <p><i >{{ hotel.description }}</i></p>
+            <h2 *transloco="let t">{{ t('hotel-address') }}</h2>
+            <p><i>{{ hotel.address }}</i></p>
+        </mat-list>
+        <button id="update-hotel-button" mat-raised-button class="ml-40 mt-5"
+            (click)="updateSelectionHotel(hotel)" *transloco="let t">{{ t('update-hotel') }}</button>
+        <button id="delete-hotel-button" mat-raised-button class="ml-30 mt-5" (click)="deleteHotelConfirmation(hotel)" *transloco="let t">{{ t('delete-hotel') }}</button>
+    </mat-card>
+</div>

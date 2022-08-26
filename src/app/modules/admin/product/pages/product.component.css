@@ -1,0 +1,36 @@
+
+.add-button-products{
+    background: #009D76;
+    color: #FFFFFF;
+    height: 70px;
+}
+.title-add-products{
+    margin-top: 10px;
+    font-size: 30px;
+    margin-left: 120px;
+    font-weight: 700;
+}
+.mat-card-products
+{
+    font-size: 30px;
+    font-weight: 700;
+}
+.mat-card-products-content{
+    font-size: 18px;
+}
+
+#update-button-product{
+    background: #009D76;
+    color: #FFFFFF;
+    height: 70px;
+}
+#delete-button-product{
+    background: #D82C0D;
+    color: #FFFFFF;
+    height: 70px;
+}
+
+.mat-snack-bar-container {
+    background: #009D76 !important;
+    color: #ffffff !important;
+}

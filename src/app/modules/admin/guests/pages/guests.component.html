@@ -1,0 +1,53 @@
+<div id="guest-section">
+    <ng-container *ngIf="updateGuestDrawer">
+        <h2 class="mt-10 title-add-guests" >Update Guests</h2>
+        <!--<h2 class="mt-10 title-add-guests" *ngIf="updateGuestDrawer">Add Guests</h2>-->
+        <mat-form-field class="accent-black ml-28 mt-5 w-72" appearance="outline">
+            <mat-label>Guests name</mat-label>
+            <input matInput placeholder="Guests name" [(ngModel)]="newClient.name">
+        </mat-form-field>
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Guests surname</mat-label>
+            <input matInput placeholder="Guests surname" min="0" [(ngModel)]="newClient.surname">
+        </mat-form-field>
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>DNI</mat-label>
+            <input type="number" matInput placeholder="DNI" [(ngModel)]="newClient.dni">
+        </mat-form-field>
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Email" [(ngModel)]="newClient.email">
+        </mat-form-field>
+        <mat-form-field class="accent-black ml-28 mt-5 w-72" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input type="number" matInput placeholder="Phone Number" [(ngModel)]="newClient.phoneNumber">
+        </mat-form-field>
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" [(ngModel)]="newClient.address">
+        </mat-form-field>
+
+        <div style="display: inline-block" *ngIf="updateGuestDrawer">
+            <button id="update-button-guest" mat-raised-button class="ml-28 mt-2"
+                (click)="updateGuest()">Update</button>
+            <button id="delete-button-guest" mat-raised-button class="ml-2 mt-2"
+                (click)="cancelUpdateGuest()">Cancel</button>
+        </div>
+    </ng-container>
+    <div style="display: inline-block" *ngIf="!updateGuestDrawer">
+        <button id="update-button-guest" mat-raised-button class="ml-28 mt-2" (click)="addGuest()">Register
+            Guests</button>
+    </div>
+    <mat-card class="ml-30 mt-10 w-200 mb-5" *ngFor="let guest of guests">
+        <h3 class="mat-card-guests">{{ guest.name }} {{ guest.surname}} <h4 class="mat-card-guests-content">DNI: {{
+                guest.dni}} <br> </h4>
+        </h3>
+        <p class="mat-card-guests-content">
+            Email: {{guest.email}} <br>Phonenumber: {{guest.phoneNumber}} <br> Address: {{guest.address}}
+        </p>
+        <button id="update-button-guest" mat-raised-button class="ml-40 mt-10 "
+            (click)="updateSelectionGuest(guest)">Update Guest</button>
+        <button id="delete-button-guest" mat-raised-button class="ml-30 mt-10"
+            (click)="deleteGuestConfirmation(guest)">Delete Guest</button>
+    </mat-card>
+</div>

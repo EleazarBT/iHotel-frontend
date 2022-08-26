@@ -1,0 +1,33 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <!-- CONTENT GOES HERE -->
+        <div class="h-150 min-h-150 max-h-150 rounded-2xl">
+            <mat-grid-list cols="2" rowHeight="10rem">
+                <mat-grid-tile [colspan]="1" [rowspan]="3">
+                    <div>
+                        <h1 class="mt-4 text-3xl font-extrabold leading-7 tracking-tight truncat md:text-4xl ">My
+                            Account</h1>
+                        <h2 class="mt-4 text-2xl font-semibold leading-tight ">My Data</h2>
+                        <h3 class="mt-4"><strong> Name: </strong>{{user.name}}</h3>
+                        <h3><strong> Company: </strong>{{user.company}}</h3>
+                        <h3><strong> Email: </strong> {{user.email}}</h3>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="3">
+                    <figure>
+                        <img style="min-width:15rem;" [src]="user.avatar" alt="profile-photo">
+                    </figure>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+
+
+        </div>
+
+    </div>
+
+</div>

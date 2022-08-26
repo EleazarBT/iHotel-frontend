@@ -1,0 +1,13 @@
+.main-content {
+    width: 80%;
+    margin: 2rem auto;
+    margin-bottom: 12rem;
+    display: grid;
+    grid-template-rows: 5% 5% 80%;
+    row-gap: 10%;
+}
+.report-cards-container {
+    height: 50rem;
+    overflow: scroll;
+}
+

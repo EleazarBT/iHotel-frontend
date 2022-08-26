@@ -1,0 +1,59 @@
+<div id="guest-section">
+    <ng-container *ngIf="updateReservationDrawer">
+        <h2 class="mt-10 title-add-guests" >Update Reservations</h2>
+       <!-- <h2 class="mt-10 title-add-guests" *ngIf="updateReservationDrawer">Add Reservations</h2>-->
+        <!--<mat-form-field class="accent-black ml-28 mt-5 w-72" appearance="outline">
+            <mat-label>Status</mat-label>
+            <input matInput placeholder="Reservations status" [(ngModel)]="newReservation.status">
+        </mat-form-field>-->
+
+    <mat-form-field class="accent-black ml-28 mt-5 w-72" appearance="outline">
+        <mat-select [(ngModel)]="newReservation.status" placeholder="Select a status" (change)="eventSelection($event.value)">
+          <mat-option *ngFor="let status of statuses" [value]="status.value">{{ status.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Enter Client id</mat-label>
+            <input matInput  min="0" id="clientId" type="number" [(ngModel)]="newReservation.clientId" required />
+            <!-- {{registerForm.value.reservationDate }}-->
+        </mat-form-field>
+
+        <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Choose a reservation</mat-label>
+            <input matInput [matDatepicker]="reservationDate" [(ngModel)]="newReservation.reservationDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="reservationDate"></mat-datepicker-toggle>
+            <mat-datepicker #reservationDate></mat-datepicker>
+          </mat-form-field>
+
+
+          <mat-form-field class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Choose a check in date</mat-label>
+            <input matInput [matDatepicker]="checkInDate" [(ngModel)]="newReservation.checkInDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="checkInDate"></mat-datepicker-toggle>
+            <mat-datepicker #checkInDate></mat-datepicker>
+          </mat-form-field>
+
+        <div style="display: inline-block" *ngIf="updateReservationDrawer">
+            <button id="update-button-guest" mat-raised-button class="ml-28 mt-2"
+                (click)="updateReservation()">Update</button>
+            <button id="delete-button-guest" mat-raised-button class="ml-2 mt-2"
+                (click)="cancelUpdateReservation()">Cancel</button>
+        </div>
+    </ng-container>
+    <div style="display: inline-block" *ngIf="!updateReservationDrawer">
+        <button id="update-button-guest" mat-raised-button class="ml-28 mt-2" (click)="addReservation()">Register
+            Reservation</button>
+    </div>
+    <mat-card class="ml-30 mt-10 w-200 mb-5" *ngFor="let reservation of reservations">
+        <h3 class="mat-card-guests"> Status: {{ reservation.status }} <h4 class="mat-card-guests-content">Check in Date: {{
+            reservation.checkInDate}} <br> Reservation date: {{ reservation.reservationDate}} <br> Client Id: {{reservation.clientId}} </h4>
+        </h3>
+        <button id="update-button-guest" mat-raised-button class="ml-40 mt-10 "
+            (click)="updateSelectionReservation(reservation)">Update Reservation</button>
+        <button id="delete-button-guest" mat-raised-button class="ml-30 mt-10"
+            (click)="deleteReservationConfirmation(reservation)">Delete Reservation</button>
+    </mat-card>
+</div>

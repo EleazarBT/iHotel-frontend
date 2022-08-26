@@ -1,0 +1,76 @@
+.grid-list {
+    width: 50rem;
+    padding: 0;
+}
+
+
+h1 {
+    margin: 3rem;
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.user-info {
+    width: 100%;
+    height: 25rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-info-row {
+    width: 50rem;
+    height: 10rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.user-img {
+    display: block;
+    width: 10rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.user-played, .user-not-played {
+    width: 5rem;
+    padding: 1rem;
+    text-align: center;
+    color: #FFF;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+}
+
+.user-played {
+    background-color: #008060;
+}
+
+.user-not-played {
+    background-color: red;
+}
+
+.user-amount {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.pay-btn {
+    background-color: cornflowerblue;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 1rem 2rem;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}

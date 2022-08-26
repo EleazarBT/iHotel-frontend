@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Register a guest</h1>
+<div mat-dialog-content>
+    <form [formGroup]="registerForm">
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter your name</mat-label>
+            <input matInput placeholder="Name" formControlName="name" required>
+            <!--<mat-error *ngIf="name.invalid">{{getErrorMessage(name)}}</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter your surname</mat-label>
+            <input matInput placeholder="Surname" formControlName="surname" required>
+            <!--<mat-error *ngIf="name.invalid">{{getErrorMessage(name)}}</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter your Address</mat-label>
+            <input matInput placeholder="Address" formControlName="address" required>
+            <!--<mat-error *ngIf="name.invalid">{{getErrorMessage(name)}}</mat-error>-->
+        </mat-form-field>
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter your ID CARD </mat-label>
+            <input matInput placeholder="Id card / passport" type="number" min="0" formControlName="dni" required>
+            <!-- <mat-error *ngIf="idCard.invalid">{{getErrorMessage(idCard)}}</mat-error>-->
+        </mat-form-field>
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter your phone number</mat-label>
+            <input matInput placeholder="Phone number" type="number" min="0" formControlName="phoneNumber" required>
+            <!--  <mat-error *ngIf="phone.invalid">{{getErrorMessage(phone)}}</mat-error>-->
+        </mat-form-field>
+        <mat-form-field class="inputRegister" appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" required>
+            <!--  <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>-->
+        </mat-form-field>>
+    </form>
+
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 1rem;" mat-raised-button color="primary" (click)="action()">{{actionButton}}</button>
+</div>

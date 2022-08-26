@@ -1,0 +1,25 @@
+<div class="main-content">
+    <h2 class="text-5xl text-center"> Reports </h2>
+    <mat-form-field appearance="fill">
+        <mat-label>Select range type</mat-label>
+        <mat-select [(value)]="selectedFilter" (selectionChange)="selectFilterValue()">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div *ngIf="data !== null" class="report-cards-container">
+        <div *ngFor="let dataRange of data">
+            <p class="font-bold text-3xl">{{selectedFilter.charAt(0).toUpperCase() + selectedFilter.slice(1)}} {{dataRange[0]}}</p>
+            <mat-card *ngFor="let value of dataRange[1]">
+                <mat-card>
+                    <p><span class="font-semibold">Purchased Products Count:</span> {{value.purchasedProductsCount}}</p>
+                    <p><span class="font-semibold">Registered Guests:</span> {{value.guestRegistered}}</p>
+                    <p><span class="font-semibold">Report Date:</span> {{value.date}}</p>
+                    <p><span class="font-semibold">Reserved Rooms:</span> {{value.reservedRooms}}</p>
+                    <p><span class="font-semibold">Amount Earned:</span> {{value.totalAmountEarned}}</p>
+                </mat-card>
+            </mat-card>
+        </div>
+    </div>
+</div>

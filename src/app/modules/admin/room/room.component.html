@@ -1,0 +1,60 @@
+<div>
+    <ng-container>
+        <h2 id="title-select-hotel-room" class="mt-10" *transloco="let t">{{ t('select-hotel-title') }}</h2>
+        <mat-form-field appearance="outline" class="ml-28 mt-5 w-200">
+            <mat-label>Hotel</mat-label>
+            <mat-select [(ngModel)]="selectHotel" name="food">
+                <mat-option *ngFor="let hotel of hotels" [value]="hotel">
+                    {{hotel.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </ng-container>
+    <ng-container *ngIf="selectHotel.id !== undefined">
+        <h2 id="title-add-room" class="mt-10" *ngIf="!updateRoomDrawer"><h2 *transloco="let t">{{ t('add-room-title') }}</h2></h2>
+        <h2 id="title-update-room" class="mt-10" *ngIf="updateRoomDrawer"><h2 *transloco="let t">{{ t('update-room-title') }}</h2></h2>
+        <mat-form-field class="ml-28 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('room-number-input') }}</mat-label>
+            <input type="number" *transloco="let t" matInput placeholder="{{ t('room-number-input') }}" [(ngModel)]="newRoom.roomNumber">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="ml-5 mt-5">
+            <mat-label *transloco="let t">{{ t('room-type-input') }}</mat-label>
+            <mat-select [(ngModel)]="selectTypeRoom">
+                <mat-option *ngFor="let type of roomType" [value]="type">
+                    {{type.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="ml-5 mt-5" appearance="outline">
+            <mat-label *transloco="let t"> {{ t('room-floor-input') }}</mat-label>
+            <input type="number" *transloco="let t" matInput placeholder="{{ t('room-floor-input') }}" [(ngModel)]="newRoom.floor">
+        </mat-form-field>
+
+        <div style="display: inline-block" *ngIf="!updateRoomDrawer">
+            <button id="add-button-room" mat-raised-button class="ml-10 mt-2" (click)="addRoom()" *transloco="let t">{{ t('hotel-register-btn') }}</button>
+        </div>
+
+        <div style="display: inline-block" *ngIf="updateRoomDrawer">
+            <button id="update-button-room" mat-raised-button class="ml-5 mt-2" (click)="updateRoom()" *transloco="let t">{{ t('hotel-update-btn') }}</button>
+            <button id="delete-room-button" mat-raised-button class="ml-2 mt-2"  (click)="cancelUpdateRoom()" *transloco="let t">{{ t('hotel-cancel-btn') }}</button>
+        </div>
+
+    </ng-container>
+    <ng-container *ngFor="let room of rooms">
+        <mat-card id="card-room" class="ml-30 mt-10 w-200" *ngIf="room.hotelId === selectHotel.id"  >
+            <h3 *transloco="let t">{{ t('card-title-room') }} {{ room.roomNumber }}</h3>
+            <mat-list>
+                <h2><b *transloco="let t">{{ t('card-title-floor') }} </b>{{ room.floor }}</h2>
+                <h2><b *transloco="let t">{{ t('card-title-room-type') }} </b>{{ roomType[room.roomTypeId].name }}</h2>
+                <h2><b *transloco="let t">{{ t('card-title-amount-beds') }} </b></h2>
+                <mat-list *ngFor="let bed of roomType[room.roomTypeId].beds" >
+                    <h4 *ngIf="bed.amount === 1" ><h4 *transloco="let t">■  {{ bedType[bed.bedId].name }}: {{ bed.amount }} {{ t('card-paragraph-bed') }} </h4></h4>
+                    <h4 *ngIf="bed.amount !== 1" ><h4 *transloco="let t">■  {{ bedType[bed.bedId].name }}: {{ bed.amount }} {{ t('card-paragraph-bed') }}s</h4></h4>
+                </mat-list>
+            </mat-list>
+            <button id="update-button-room" mat-raised-button class="ml-40 mt-5" *transloco="let t" (click)="updateSelectionRoom(room)">{{ t('room-update-btn') }}</button>
+            <button id="delete-room-button" mat-raised-button class="ml-30 mt-5" *transloco="let t" (click)="deleteRoomConfirmation(room)">{{ t('room-delete-btn') }}</button>
+        </mat-card>
+    </ng-container>
+</div>
+

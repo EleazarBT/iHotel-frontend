@@ -1,0 +1,29 @@
+<div id="service-section">
+    <ng-container>
+        <h2 id="title-add-service" class="mt-10" *ngIf="!updateServiceDrawer">Add Service</h2>
+        <h2 id="title-update-service" class="mt-10" *ngIf="updateServiceDrawer">Update Service</h2>
+        <mat-form-field class="accent-black ml-28 mt-5 w-72" appearance="outline">
+            <mat-label>Service's name</mat-label>
+            <input matInput placeholder="Service's name" [(ngModel)]="newService.name">
+        </mat-form-field>
+        <mat-form-field type="number" class="accent-black ml-5 mt-5 w-72" appearance="outline">
+            <mat-label>Price</mat-label>
+            <input type="number" matInput placeholder="Price" type="number" min="0"  [(ngModel)]="newService.price">
+        </mat-form-field>
+
+        <div style="display: inline-block" *ngIf="!updateServiceDrawer">
+            <button id="add-button-service" mat-raised-button class="ml-10 mt-7" (click)="addServiceName()">Register Service</button>
+        </div>
+        <div style="display: inline-block" *ngIf="updateServiceDrawer">
+            <button id="update-button-service" mat-raised-button class="ml-5 mt-2" (click)="updateService()" *transloco="let t">{{ t('hotel-update-btn') }}</button>
+            <button id="delete-service-button" mat-raised-button class="ml-2 mt-2"  (click)="cancelUpdateService()" *transloco="let t">{{ t('hotel-cancel-btn') }}</button>
+        </div>
+    </ng-container>
+    <mat-card id="mat-card-service" class="ml-30 mt-10 w-200" *ngFor="let service of services">
+        <h3>{{  service.name }}</h3>
+        <p><i>{{ "Price: " + service.price }}</i></p>
+        <button id="update-button-service" mat-raised-button class="ml-40 mt-10" (click)="updateSelectionService(service)">Update Service</button>
+        <button id="delete-button-service" mat-raised-button class="ml-30 mt-10" (click)="deleteService(service)">Delete Service</button>
+    </mat-card>
+</div>
+
